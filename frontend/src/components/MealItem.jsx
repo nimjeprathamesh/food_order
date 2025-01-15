@@ -5,7 +5,7 @@ import Button from "./UI/Button.jsx";
 
 export default function MealItem({meal}) {
     const cartCtx = useContext(CartContext);
-
+    
     function handleAddMealToCart() {
         cartCtx.addItem(meal);
     }
@@ -13,7 +13,7 @@ export default function MealItem({meal}) {
     return (
         <li className="meal-item">
             <article>
-                <img src={`http://localhost:5173/${meal.image}`} alt={meal.name} />
+                <img src={`https://food-order-app-eight-xi.vercel.app/${meal.image}`} alt={meal.name} />
                 <div>
                     <h3>{meal.name}</h3>
                     <p className="meal-item-price">
