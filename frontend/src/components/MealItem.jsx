@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import CartContext from "../store/CartContext.jsx";
+import { FRONTEND_URL } from "../util/constant.jsx";
 import { currencyFormatter } from "../util/formatting.jsx";
 import Button from "./UI/Button.jsx";
 
@@ -13,7 +14,7 @@ export default function MealItem({meal}) {
     return (
         <li className="meal-item">
             <article>
-                <img src={`https://food-order-app-eight-xi.vercel.app/${meal.image}`} alt={meal.name} />
+                <img src={`${FRONTEND_URL}/${meal.image}`} alt={meal.name} />
                 <div>
                     <h3>{meal.name}</h3>
                     <p className="meal-item-price">
