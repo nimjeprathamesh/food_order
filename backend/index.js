@@ -17,15 +17,11 @@ app.use(express.json());
 app.use(cors());
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    port: 3305,
-    user: 'root',
-    password: '1234',
-    database: 'foodorder',
-});
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 });
 
 db.connect((err) => {
@@ -34,6 +30,10 @@ db.connect((err) => {
         return;
     }
     console.log("Connected to MySQL database");
+});
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
 
 app.use((req, res, next) => {
